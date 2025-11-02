@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Crew Dashboard | One Piece Management</title>
+  <link rel="stylesheet" href="style.css" />
+  <script defer src="crew.js"></script>
+</head>
+<body>
+  <header>
+    <h1>🦜 Crew Management</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="crew.html">Crew</a>
+    </nav>
+  </header>
+
+  <section class="hero" style="background: linear-gradient(180deg, #ff6b6b, #feca57); height: auto; min-height: 100vh;">
+    <div class="hero-content" style="margin-top: 100px;">
+      <h2>Crew Dashboard</h2>
+      <p>Kelola kru bajak lautmu dengan mudah — tambahkan, edit, atau hapus anggota kru!</p>
+
+      <div style="background: rgba(255,255,255,0.1); padding: 30px; border-radius: 15px; margin-top: 30px; backdrop-filter: blur(5px);">
+        <h3>Tambah Kru Baru</h3>
+        <input type="text" id="name" placeholder="Nama Kru" />
+        <input type="text" id="role" placeholder="Peran (contoh: Navigator, Kapten)" />
+        <button onclick="addCrew()">Tambah</button>
+      </div>
+
+      <div style="margin-top: 50px;">
+        <h3>Daftar Kru</h3>
+        <table border="1" cellpadding="10" cellspacing="0" style="margin: 0 auto; color: #fff; border-color: #fff;">
+          <thead>
+            <tr>
+              <th>Nama</th>
+              <th>Peran</th>
+              <th>Aksi</th>
+            </tr>
+          </thead>
+          <tbody id="crew-list"></tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 Crew Management System - One Piece Edition</p>
+  </footer>
+</body>
+</html>
