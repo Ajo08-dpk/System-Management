@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Crew Management — One Piece Themed</title>
+
+  <!-- stylesheet -->
+  <link rel="stylesheet" href="src/css/style.css">
+
+  <!-- optional: load google font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- app script (module) -->
+  <script type="module" src="src/js/app.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="brand">
+        <!-- ganti nanti dengan logo di /images/logo.png -->
+        <img src="public/images/logo.png" alt="Logo" class="logo" onerror="this.style.display='none'">
+        <h1>⚓ Crew Management — One Piece</h1>
+      </div>
+
+      <nav class="nav">
+        <button id="btn-add" class="btn primary">+ Add Crew</button>
+        <button id="btn-refresh" class="btn">Refresh</button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container main-grid">
+    <!-- Left: list -->
+    <section class="panel list-panel">
+      <h2>Strawhat Crew</h2>
+      <div id="crew-list" class="crew-list">
+        <!-- list akan di-render oleh JS -->
+      </div>
+    </section>
+
+    <!-- Right: profile & 3D -->
+    <section class="panel profile-panel">
+      <div id="empty-state" class="empty-state">
+        <p>Pilih anggota kru untuk melihat profil 3D</p>
+        <div class="hint">Contoh: klik "Monkey D. Luffy"</div>
+      </div>
+
+      <div id="profile-card" class="profile-card hidden">
+        <div class="profile-header">
+          <div>
+            <h3 id="profile-name">Monkey D. Luffy</h3>
+            <p id="profile-role" class="muted">Captain</p>
+          </div>
+          <div class="profile-actions">
+            <button id="edit-btn" class="btn">Edit</button>
+            <button id="delete-btn" class="btn danger">Delete</button>
+          </div>
+        </div>
+
+        <div class="spline-wrap">
+          <!-- iframe spline akan diubah oleh JS -->
+          <iframe id="spline-frame" src="public/spline/luffy.html" frameborder="0" title="3D Character"></iframe>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Modal: Add / Edit -->
+  <div id="modal" class="modal hidden" role="dialog" aria-modal="true">
+    <div class="modal-inner">
+      <h3 id="modal-title">Add Crew</h3>
+      <form id="form-crew">
+        <label>
+          Name
+          <input id="input-name" name="name" type="text" required>
+        </label>
+        <label>
+          Role
+          <input id="input-role" name="role" type="text" required>
+        </label>
+        <label>
+          Character (Luffy / Zoro / Nami)
+          <input id="input-char" name="char" type="text" placeholder="Luffy" required>
+        </label>
+
+        <div class="modal-actions">
+          <button type="button" id="btn-cancel" class="btn">Cancel</button>
+          <button type="submit" class="btn primary">Save</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- small footprint footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <small>Made by Safar • Project: Crew Management One Piece</small>
+    </div>
+  </footer>
+
+  <!-- minimal inline script for accessibility / no-FOUC -->
+  <script>
+    // give JS a chance to progressively enhance
+    document.documentElement.classList.add('js-ready');
+  </script>
+</body>
+</html>
